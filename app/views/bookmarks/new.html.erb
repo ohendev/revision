@@ -1,8 +1,10 @@
 <div class="container">
-  <h1><%= @list.name %></h1>
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.association :movie, collection: Movie.all %>
-    <%= f.input :comment %>
-    <%= f.submit %>
-  <% end %>
+  <div class="body-form">
+    <h1><%= @list.name %></h1>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie, collection: Movie.all %>
+      <%= f.input :comment %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
