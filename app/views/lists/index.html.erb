@@ -6,6 +6,9 @@
 </div>
 
 <div class="container">
+  <% if @lists.size.zero? %>
+    <p>You don't have any list yet... create some, please.</p>
+  <% end %>
   <div class="cards">
     <% @lists.each do |list| %>
       <%= link_to list_path(list.id), class: "card-link" do %>
