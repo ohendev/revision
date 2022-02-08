@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= current_user.email %></h1>
+  <%= link_to "Create List", new_list_path %>
   <ul>
     <% @lists.each do |list| %>
       <li><%= list.name %></li>
