@@ -1,9 +1,21 @@
 <div class="container">
   <h1><%= @list.name %></h1>
   <%= link_to "Add a movie", new_list_bookmark_path(@list.id) %>
-  <ul>
+  <div class="cards">
     <% @list.movies.each do |movie| %>
-      <li><%= movie.title %></li>
+      <div class="card">
+        <div class="card-img">
+          <%= image_tag movie.poster_url %>
+        </div>
+        <div class="card-content">
+          <h3><%= movie.title %></h3>
+          <p><%= movie.preview %></p>
+          <p>Rating: <%= movie.rating %>/10</p>
+        </div>
+        <div class="card-delete">
+          <%= link_to bookmark_path(Bookmark.find_by(list: @list, movie: movie)), method: :delete  do %><i class="fas fa-trash-alt"></i><% end %> 
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
