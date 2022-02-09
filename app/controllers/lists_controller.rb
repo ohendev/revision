@@ -29,6 +29,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @name = params[:list][:name]
     @list.name = @name
+    @list.photo = params[:list][:photo]
     if @list.save
       redirect_to list_path(@list)
     else
@@ -39,6 +40,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end
